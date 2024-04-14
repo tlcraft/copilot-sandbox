@@ -2,11 +2,16 @@
   "name": "copilot-sandbox",
   "version": "1.0.0",
   "description": "I'm playing around with the GitHub Copilot extension and seeing what all it can do. The code here will be written using that tool.",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
+    "start": "ts-node src/main.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
 }
