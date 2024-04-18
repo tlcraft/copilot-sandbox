@@ -3,6 +3,7 @@
 I'm playing around with the GitHub Copilot extension and seeing what all it can do. The code here will be written using that tool.
 
 - [GitHub Copilot](https://github.com/features/copilot)
+- [Getting Started](https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot)
 
 ## Key Features
 
