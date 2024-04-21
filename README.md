@@ -1,6 +1,6 @@
 # Copilot Sandbox
 
-I'm playing around with the GitHub Copilot extension and seeing what all it can do. The code here will be written using that tool.
+I'm playing around with the GitHub Copilot extension and seeing what all it can do. The code here will be written using that tool. I'll work to build the card game War.
 
 - [GitHub Copilot](https://github.com/features/copilot)
 - [Getting Started](https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot)
@@ -28,3 +28,28 @@ For example, if you run mkdir -p src/main, it will create both the src and src/m
 ```
 
 - [Source](https://man7.org/linux/man-pages/man1/mkdir.1.html)
+
+I decided to ask Copilot how to build a card game. It suggested some starter classes for a Card and Deck so I'll add those to the repo.
+
+When asked how we could create the game War using the Deck and Card classes it suggested in an Angular app it showed me an example of wrapping those in the `Injectable` decorator. It didn't provide much insight on the game rules and loop at this point.
+
+It did pointed out these steps:
+
+```
+Create Angular Project: Use Angular CLI to create a new project.
+
+Create Card and Deck Services: Create Angular services for Card and Deck. These services will contain the logic for creating cards and decks, shuffling, and dealing.
+
+Create Game Service: Create a Game service that uses the Deck service to control the game flow. This includes dealing cards to players, comparing cards, and determining the winner.
+
+Create Components: Create Angular components for displaying the game. This could include components for the game board, player hands, and the deck.
+
+Connect Components and Services: Use Angular's dependency injection to connect your components and services. The components will use the services to get data and perform actions.
+```
+
+Here are the high-level steps it outlined when I asked how to create a new Angular project.
+
+- `npm install -g @angular/cli`
+- `ng new my-app`
+- `ng my-app`
+- `ng serve`
