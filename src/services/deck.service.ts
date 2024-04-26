@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { CardService } from './card.service';
+import { Card } from '../classes/card';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DeckService {
-  public cards: CardService[] = [];
+  public cards: Card[] = [];
 
   constructor() {
     const suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
@@ -13,7 +13,7 @@ export class DeckService {
 
     for (let suit of suits) {
       for (let value of values) {
-        this.cards.push(new CardService(suit, value));
+        this.cards.push(new Card(suit, value));
       }
     }
   }
@@ -26,6 +26,6 @@ export class DeckService {
 }
 
   deal() {
-    // Implement deal logic here
+    return this.cards.pop();
   }
 }
