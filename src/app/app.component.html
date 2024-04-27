@@ -8,8 +8,8 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <main class="main">
   <div class="game">
-    <div class="card hearts">
-      <span class="value">A</span>
+    <div *ngIf="player1Card.suit" class="card {{player1Card.suit}}">
+      <span class="value">{{player1Card.value}}</span>
     </div>
     <div class="card clubs">
       <span class="value">7</span>
