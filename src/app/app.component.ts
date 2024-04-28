@@ -25,10 +25,12 @@ export class AppComponent {
   }
 
   playRound() {
-    const { player1Card, player2Card } = this.gameService.playRound();
-    if ( player1Card && player2Card) {
-      this.player1Card = player1Card;
-      this.player2Card = player2Card;
+    if(!this.gameService.checkGameOver()) {
+      const { player1Card, player2Card } = this.gameService.playRound();
+      if ( player1Card && player2Card) {
+        this.player1Card = player1Card;
+        this.player2Card = player2Card;
+      }
     }
   }
 }
