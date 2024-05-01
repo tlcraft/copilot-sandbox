@@ -53,3 +53,64 @@ Here are the high-level steps it outlined when I asked how to create a new Angul
 - `ng new my-app`
 - `ng my-app`
 - `ng serve`
+
+I asked Copilot to implement the shuffle method and I used its suggestion. It explained "the shuffle method can be implemented using the Fisher-Yates (also known as Knuth) shuffle algorithm. This algorithm works by iterating through the array from the last element to the first, swapping each element with an element at a random index below it.".
+
+When asked to create a game service to play the game it responded with the following code which needed some additional adjustments.
+
+```typescript
+import { Injectable } from '@angular/core';
+import { DeckService } from './deck.service';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class GameService {
+  private player1Deck: DeckService;
+  private player2Deck: DeckService;
+
+  constructor(private deckService: DeckService) {
+    this.startGame();
+  }
+
+  startGame() {
+    this.deckService.shuffle();
+    this.player1Deck = new DeckService();
+    this.player2Deck = new DeckService();
+
+    while (this.deckService.cards.length) {
+      this.player1Deck.cards.push(this.deckService.deal());
+      this.player2Deck.cards.push(this.deckService.deal());
+    }
+  }
+
+  playRound() {
+    const player1Card = this.player1Deck.deal();
+    const player2Card = this.player2Deck.deal();
+
+    if (player1Card.value > player2Card.value) {
+      this.player1Deck.cards.unshift(player1Card, player2Card);
+    } else if (player2Card.value > player1Card.value) {
+      this.player2Deck.cards.unshift(player2Card, player1Card);
+    } else {
+      // It's war!
+      // For simplicity, we'll just say the player who starts the war wins the war
+      this.player1Deck.cards.unshift(player1Card, player2Card);
+    }
+  }
+
+  checkGameOver() {
+    return this.player1Deck.cards.length === 0 || this.player2Deck.cards.length === 0;
+  }
+}
+```
+
+I made the descision to update the CardService and make it a model instead. I also connected parts of the game service to the UI myself where I updated the `playRound` method to return the drawn cards for display and updated the code to handle null checks.
+
+At this point I'll circle back to asking Copilot for insight on the last steps, such as creating a method to return who has won the game.
+
+I asked Copilot to explain the `playRound` method (by highlighting the method name alone in the game service) and it described its original implementation and didn't take into account the changes I made to it locally. But after highlighting the contexts of the method and asking again it was able to describe my changes.
+
+I asked it to create tests for the Game Service and while it generated several tests it missed mocking out dependencies. It didn't understand that the player fields were private so they were inacessible. I'm working through updating the file so it'll run propertly.
+
+I asked for a method to return the winner of the game which I used. And then I manually integrated that with the UI.
