@@ -20,6 +20,9 @@
     <div *ngIf="!player1Wins">
       <span>Player 2 wins this round.</span>
     </div>
+    <div *ngIf="winner">
+      <span>{{winner}}</span>
+    </div>
   </div>
 </main>
 
