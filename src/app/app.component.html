@@ -14,6 +14,12 @@
     <div *ngIf="player2Card.suit" class="card {{player2Card.suit}}" (click)="playRound()">
       <span class="value">{{player2Card.value}}</span>
     </div>
+    <div *ngIf="player1Wins">
+      <span>Player 1 wins this round.</span>
+    </div>
+    <div *ngIf="!player1Wins">
+      <span>Player 2 wins this round.</span>
+    </div>
   </div>
 </main>
 

@@ -16,6 +16,7 @@ export class AppComponent {
 
   player1Card: Card = new Card('', '');
   player2Card: Card = new Card('', '');
+  player1Wins: boolean = false;
 
   constructor(private gameService: GameService) {}
 
@@ -26,11 +27,13 @@ export class AppComponent {
 
   playRound() {
     if(!this.gameService.checkGameOver()) {
-      const { player1Card, player2Card } = this.gameService.playRound();
+      const { player1Card, player2Card, player1Wins } = this.gameService.playRound();
       if ( player1Card && player2Card) {
         this.player1Card = player1Card;
         this.player2Card = player2Card;
       }
+
+      this.player1Wins = player1Wins;
     }
   }
 }
