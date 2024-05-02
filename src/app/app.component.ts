@@ -26,6 +26,11 @@ export class AppComponent {
     this.playRound();
   }
 
+  /**
+   * Plays a round of the game.
+   * If the game is not over, it retrieves the cards played in the round and updates the player's cards and wins.
+   * Finally, it checks if the game is over and sets the winner accordingly.
+   */
   playRound() {
     if(!this.gameService.checkGameOver()) {
       const { player1Card, player2Card, player1Wins } = this.gameService.playRound();
