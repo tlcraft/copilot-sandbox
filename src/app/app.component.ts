@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { GameService } from '../services/game.service';
 import { Card } from '../classes/card';
 import { CommonModule } from '@angular/common';
+import { CardValue } from '../enums/card-value.enum';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +15,8 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   title = 'card-game';
 
-  player1Card: Card = new Card('', '');
-  player2Card: Card = new Card('', '');
+  player1Card: Card = new Card('', CardValue.None);
+  player2Card: Card = new Card('', CardValue.None);
   player1Wins: boolean = false;
   winner: string = '';
 

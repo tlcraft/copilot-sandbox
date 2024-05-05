@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { Card } from '../classes/card';
 import { GameService } from './game.service';
 import { DeckService } from './deck.service';
+import { CardValue } from '../enums/card-value.enum';
 
 class MockDeckService {
   constructor(public cards: Card[]) { }
@@ -13,7 +14,7 @@ describe('GameService', () => {
   let service: GameService;
 
   beforeEach(() => {
-    const mockDeckService = new MockDeckService([new Card('Hearts', 'A'), new Card('Hearts', '2')]);
+    const mockDeckService = new MockDeckService([new Card('Hearts', CardValue.Ace), new Card('Hearts', CardValue.Two)]);
     TestBed.configureTestingModule({
       providers: [{ provide: DeckService, useValue: mockDeckService }],
     });
