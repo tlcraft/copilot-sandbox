@@ -1,4 +1,4 @@
-enum CardSuit {
+export enum CardSuit {
     None = "None",
     Clubs = "Clubs",
     Diamonds = "Diamonds",
