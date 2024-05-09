@@ -45,4 +45,12 @@ export class AppComponent {
 
     this.winner = this.gameService.checkGameOver() ? this.gameService.getWinner() : '';
   }
+
+  getCardValueName(value: CardValue): string {
+    if (value < 11) {
+        return value.toString();
+    } else {
+        return CardValue[value].substring(0, 1);
+    }
+  }
 }
