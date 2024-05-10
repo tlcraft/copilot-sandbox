@@ -9,10 +9,10 @@
 <main class="main">
   <div class="game">
     <div *ngIf="player1Card.suit" class="card {{player1Card.suit}}" (click)="playRound()">
-      <span class="value">{{player1Card.value}}</span>
+      <span class="value">{{getCardValueName(player1Card.value)}}</span>
     </div>
     <div *ngIf="player2Card.suit" class="card {{player2Card.suit}}" (click)="playRound()">
-      <span class="value">{{player2Card.value}}</span>
+      <span class="value">{{getCardValueName(player2Card.value)}}</span>
     </div>
     <div *ngIf="player1Wins">
       <span>Player 1 wins this round.</span>
