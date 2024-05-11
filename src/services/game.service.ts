@@ -30,21 +30,28 @@ export class GameService {
     }
 
     playRound() {
-        const player1Card = this.player1Deck.pop();
-        const player2Card = this.player2Deck.pop();
+        let player1Card = this.player1Deck.pop();
+        let player2Card = this.player2Deck.pop();
         let player1Wins  = false;
+
         if (player1Card && player2Card) {
-            if (player1Card.value > player2Card.value) {
-                this.player1Deck.unshift(player1Card, player2Card);
-                player1Wins = true;
-            } else if (player2Card.value > player1Card.value) {
-                this.player2Deck.unshift(player2Card, player1Card);
-                player1Wins = false;
-            } else {
-                // It's war!
-                // For simplicity, we'll just say the player who starts the war wins the war
-                this.player1Deck.unshift(player1Card, player2Card);
-                player1Wins = true;
+
+            const pile: Card[] = [];
+            while (player1Card && player2Card && player1Card.value === player2Card.value) {
+                // This is a war
+                pile.push(player1Card, player2Card); // face-down cards
+                player1Card = this.player1Deck.pop();
+                player2Card = this.player2Deck.pop();
+            }
+
+            if (player1Card && player2Card) {
+                if (player1Card.value > player2Card.value) {
+                    this.player1Deck.unshift(player1Card, player2Card, ...pile);
+                    player1Wins = true;
+                } else if (player2Card.value > player1Card.value) {
+                    this.player2Deck.unshift(player2Card, player1Card, ...pile);
+                    player1Wins = false;
+                }
             }
         }
 
