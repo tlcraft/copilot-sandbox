@@ -75,4 +75,12 @@ export class GameService {
             return 'The game is not over yet.';
         }
     }
+
+    getPlayer1CardCount() {
+        return this.player1Deck.length;
+    }
+
+    getPlayer2CardCount() {
+        return this.player2Deck.length;
+    }
 }
