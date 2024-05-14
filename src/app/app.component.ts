@@ -53,4 +53,12 @@ export class AppComponent {
         return CardValue[value].substring(0, 1);
     }
   }
+
+  getPlayer1CardCount(): number {
+    return this.gameService.getPlayer1CardCount();
+  }
+
+  getPlayer2CardCount(): number {
+    return this.gameService.getPlayer2CardCount();
+  }
 }
