@@ -16,10 +16,10 @@
     </div>
     <div>Player 1 Card Count: {{getPlayer1CardCount()}}</div>
     <div>Player 2 Card Count: {{getPlayer2CardCount()}}</div>
-    <div *ngIf="player1Wins">
+    <div *ngIf="player1Wins && !winner">
       <span>Player 1 wins this round.</span>
     </div>
-    <div *ngIf="!player1Wins">
+    <div *ngIf="!player1Wins && !winner">
       <span>Player 2 wins this round.</span>
     </div>
     <div *ngIf="winner">
