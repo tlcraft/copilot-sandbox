@@ -8,14 +8,14 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <main class="main">
   <div class="game">
+    <div>Player 1 Card Count: {{getPlayer1CardCount()}}</div>
+    <div>Player 2 Card Count: {{getPlayer2CardCount()}}</div>
     <div *ngIf="player1Card.suit" class="card {{player1Card.suit}}" (click)="playRound()">
       <span class="value">{{getCardValueName(player1Card.value)}}</span>
     </div>
     <div *ngIf="player2Card.suit" class="card {{player2Card.suit}}" (click)="playRound()">
       <span class="value">{{getCardValueName(player2Card.value)}}</span>
     </div>
-    <div>Player 1 Card Count: {{getPlayer1CardCount()}}</div>
-    <div>Player 2 Card Count: {{getPlayer2CardCount()}}</div>
     <div *ngIf="player1Wins && !winner">
       <span>Player 1 wins this round.</span>
     </div>
