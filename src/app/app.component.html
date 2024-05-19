@@ -16,14 +16,10 @@
     <div *ngIf="player2Card.suit" class="card {{player2Card.suit}}" (click)="playRound()">
       <span class="value">{{getCardValueName(player2Card.value)}}</span>
     </div>
-    <div class="message" *ngIf="player1Wins && !winner">
-      <span>Player 1 wins this round.</span>
-    </div>
-    <div class="message" *ngIf="!player1Wins && !winner">
-      <span>Player 2 wins this round.</span>
-    </div>
-    <div class="message" *ngIf="winner">
-      <span>{{winner}}</span>
+    <div class="message">
+      <span *ngIf="player1Wins && !winner">Player 1 wins this round.</span>
+      <span *ngIf="!player1Wins && !winner">Player 2 wins this round.</span>
+      <span *ngIf="winner">{{winner}}</span>
     </div>
   </div>
 </main>
