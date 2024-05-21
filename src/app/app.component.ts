@@ -4,6 +4,7 @@ import { GameService } from '../services/game.service';
 import { Card } from '../classes/card';
 import { CommonModule } from '@angular/common';
 import { CardValue } from '../enums/card-value.enum';
+import { CardSuit } from '../enums/card-suite.enum';
 
 @Component({
   selector: 'app-root',
@@ -60,5 +61,20 @@ export class AppComponent {
 
   getPlayer2CardCount(): number {
     return this.gameService.getPlayer2CardCount();
+  }
+
+  getSuitIcon(suit: string): string {
+    switch(suit) {
+      case CardSuit.Clubs:
+        return '♣';
+      case CardSuit.Diamonds: 
+        return '♦';
+      case CardSuit.Hearts:
+        return '♥';
+      case CardSuit.Spades:
+        return '♠';
+      default:
+        return '';
+    }
   }
 }
