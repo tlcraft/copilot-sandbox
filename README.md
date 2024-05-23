@@ -114,3 +114,5 @@ I asked Copilot to explain the `playRound` method (by highlighting the method na
 I asked it to create tests for the Game Service and while it generated several tests it missed mocking out dependencies. It didn't understand that the player fields were private so they were inacessible. I'm working through updating the file so it'll run propertly.
 
 I asked for a method to return the winner of the game which I used. And then I manually integrated that with the UI.
+
+In the end I asked how to update the game logic to better handle the rules of War. I used the example to update the rules where players add duplicates to a pile until a winner is declared. Then I manually updated some items, like displaying the suit icon on the cards and fixed some styling. I also updated the UI with some messaging.
