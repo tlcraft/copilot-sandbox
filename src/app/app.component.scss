@@ -9,7 +9,9 @@
     font-size: 14px;
     text-align: center;
     line-height: 80px;
-    margin: 5px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .card.hearts,
@@ -25,4 +27,16 @@
 .deck {
     display: flex;
     flex-wrap: wrap;
+}
+
+.game {
+    text-align: center;
+}
+
+.message {
+    margin-top: 15px;
+}
+
+.value {
+    margin-right: 5px;
 }

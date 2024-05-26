@@ -8,20 +8,20 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <main class="main">
   <div class="game">
-    <div *ngIf="player1Card.suit" class="card {{player1Card.suit}}" (click)="playRound()">
-      <span class="value">{{player1Card.value}}</span>
+    <div>Player 1 Card Count: {{getPlayer1CardCount()}}</div>
+    <div>Player 2 Card Count: {{getPlayer2CardCount()}}</div>
+    <div *ngIf="player1Card.suit" class="card {{player1Card.suit.toLowerCase()}}" (click)="playRound()">
+      <span class="value">{{getCardValueName(player1Card.value)}}</span>
+      <span>{{getSuitIcon(player1Card.suit)}}</span>
     </div>
-    <div *ngIf="player2Card.suit" class="card {{player2Card.suit}}" (click)="playRound()">
-      <span class="value">{{player2Card.value}}</span>
+    <div *ngIf="player2Card.suit" class="card {{player2Card.suit.toLowerCase()}}" (click)="playRound()">
+      <span class="value">{{getCardValueName(player2Card.value)}}</span>
+      <span>{{getSuitIcon(player2Card.suit)}}</span>
     </div>
-    <div *ngIf="player1Wins">
-      <span>Player 1 wins this round.</span>
-    </div>
-    <div *ngIf="!player1Wins">
-      <span>Player 2 wins this round.</span>
-    </div>
-    <div *ngIf="winner">
-      <span>{{winner}}</span>
+    <div class="message">
+      <span *ngIf="player1Wins && !winner">Player 1 wins this round.</span>
+      <span *ngIf="!player1Wins && !winner">Player 2 wins this round.</span>
+      <span *ngIf="winner">{{winner}}</span>
     </div>
   </div>
 </main>

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Card } from '../classes/card';
+import { CardValue } from '../enums/card-value.enum';
+import { CardSuit } from '../enums/card-suite.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -8,9 +10,8 @@ export class DeckService {
   public cards: Card[] = [];
 
   constructor() {
-    const suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
-    const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
-
+    const suits = [CardSuit.Clubs, CardSuit.Diamonds, CardSuit.Hearts, CardSuit.Spades];
+    const values = [CardValue.Two, CardValue.Three, CardValue.Four, CardValue.Five, CardValue.Six, CardValue.Seven, CardValue.Eight, CardValue.Nine, CardValue.Ten, CardValue.Jack, CardValue.Queen, CardValue.King, CardValue.Ace];
     for (let suit of suits) {
       for (let value of values) {
         this.cards.push(new Card(suit, value));
